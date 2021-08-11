@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>spring-transfer</module>
+        <module>spring-transfer-solution</module>
     </modules>
 
 
