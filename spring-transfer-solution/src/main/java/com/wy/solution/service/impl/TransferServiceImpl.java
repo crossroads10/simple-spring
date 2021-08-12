@@ -47,6 +47,7 @@ public class TransferServiceImpl implements TransferService {
             Account from = accountDao.queryAccountByCardNo(fromCardNo);
             Account to = accountDao.queryAccountByCardNo(toCardNo);
 
+
             from.setMoney(from.getMoney() - money);
             to.setMoney(to.getMoney() + money);
 
