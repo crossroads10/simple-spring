@@ -1,9 +1,9 @@
-package com.wy.solution.servlet;
+package com.wy.spring.servlet;
 
-import com.wy.solution.response.MyResponse;
-import com.wy.solution.service.TransferService;
-import com.wy.solution.service.impl.TransferServiceImpl;
-import com.wy.solution.utils.JsonUtils;
+import com.wy.spring.response.MyResponse;
+import com.wy.spring.service.TransferService;
+import com.wy.spring.service.impl.TransferServiceImpl;
+import com.wy.spring.utils.JsonUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

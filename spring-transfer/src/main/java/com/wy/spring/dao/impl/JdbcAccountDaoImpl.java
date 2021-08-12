@@ -1,8 +1,8 @@
-package com.wy.solution.dao.impl;
+package com.wy.spring.dao.impl;
 
-import com.wy.solution.config.DataSourceConfig;
-import com.wy.solution.dao.AccountDao;
-import com.wy.solution.pojo.Account;
+import com.wy.spring.config.DataSourceConfig;
+import com.wy.spring.dao.AccountDao;
+import com.wy.spring.pojo.Account;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

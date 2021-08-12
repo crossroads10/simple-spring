@@ -1,4 +1,4 @@
-package com.wy.solution.pojo;
+package com.wy.spring.pojo;
 
 
 

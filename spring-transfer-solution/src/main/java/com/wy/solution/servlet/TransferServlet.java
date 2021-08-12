@@ -1,9 +1,10 @@
 package com.wy.solution.servlet;
 
+import com.wy.solution.factory.BeanFactory;
+import com.wy.solution.utils.JsonUtils;
 import com.wy.solution.response.MyResponse;
 import com.wy.solution.service.TransferService;
 import com.wy.solution.service.impl.TransferServiceImpl;
-import com.wy.solution.utils.JsonUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -39,7 +40,7 @@ import java.io.IOException;
 @WebServlet(name = "transferServlet", urlPatterns = "/transferServlet")
 public class TransferServlet extends HttpServlet {
 
-    private TransferService transferService = new TransferServiceImpl();
+    private TransferService transferService = (TransferService) BeanFactory.getBean("transferService");
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

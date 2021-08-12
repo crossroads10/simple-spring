@@ -2,9 +2,20 @@
 <!--跟标签beans，里面配置一个又一个的bean子标签，每一个bean子标签都代表一个类的配置-->
 <beans>
     <!--    id是标识对象，class是全限定类名-->
-    <bean class="com.wy.solution.dao.impl.JdbcAccountDaoImpl" id="accountDao"/>
+    <bean class="com.wy.solution.dao.impl.JdbcAccountDaoImpl" id="accountDao">
+        <property name="ConnectionPools" ref="connectionPools"></property>
+    </bean>
+    <bean class="com.wy.solution.utils.TransactionManager" id="transactionManager">
+        <!--        set+name 之后就锁定了传值的set方法，并且通过反射的invoke方法，来进行方法的调用，进行注入set-->
+        <property name="ConnectionPools" ref="connectionPools"></property>
+    </bean>
     <bean class="com.wy.solution.service.impl.TransferServiceImpl" id="transferService">
         <!--        set+name 之后就锁定了传值的set方法，并且通过反射的invoke方法，来进行方法的调用，进行注入set-->
         <property name="AccountDao" ref="accountDao"></property>
+        <property name="TransactionManager" ref="transactionManager"></property>
     </bean>
+    <bean class="com.wy.solution.utils.ConnectionPools" id="connectionPools"></bean>
+
+
+
 </beans>

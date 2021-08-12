@@ -4,7 +4,7 @@
 
 - 思考:
 (1) new关键字实例化对象，除了new以外还有什么技术可以实例化对象呢(当然是反射喽)Class.forName("全限定类名");
-com.wy.solution.dao.impl.JdbcAccountDaoImpl 可以把全限定类名配置在xml文件中
+com.wy.spring.dao.impl.JdbcAccountDaoImpl 可以把全限定类名配置在xml文件中
 (2)通过反射可以动态的替换掉使用new对象，但是还有一个问题并没有解决呢，通过反射创建对象后，因为forName是全限定类名，这个也需要
 来进行更改，如果有业务需求替换的话，以及业务中如何来使用这个对象呢？所以问题就来了，这也是个通过反射实现之后如何使用的问题，以至于
 业务代码和实际对象进行解耦。

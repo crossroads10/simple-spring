@@ -1,4 +1,4 @@
-package com.wy.solution.config;
+package com.wy.spring.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 

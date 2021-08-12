@@ -1,9 +1,9 @@
-package com.wy.solution.service.impl;
+package com.wy.spring.service.impl;
 
-import com.wy.solution.dao.AccountDao;
-import com.wy.solution.dao.impl.JdbcAccountDaoImpl;
-import com.wy.solution.pojo.Account;
-import com.wy.solution.service.TransferService;
+import com.wy.spring.dao.AccountDao;
+import com.wy.spring.dao.impl.JdbcAccountDaoImpl;
+import com.wy.spring.pojo.Account;
+import com.wy.spring.service.TransferService;
 
 /**
  * @Classname TransferServiceImpl

@@ -1,6 +1,6 @@
-package com.wy.solution.dao;
+package com.wy.spring.dao;
 
-import com.wy.solution.pojo.Account;
+import com.wy.spring.pojo.Account;
 
 /**
  * @Classname AccountDao

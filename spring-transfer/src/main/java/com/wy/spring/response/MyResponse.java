@@ -1,4 +1,4 @@
-package com.wy.solution.response;
+package com.wy.spring.response;
 
 /**
  * @Classname MyResponse

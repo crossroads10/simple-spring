@@ -74,7 +74,8 @@ public class BeanFactory {
             Method[] methods = parentBean.getClass().getMethods();
             for (int j = 0; j < methods.length; j++) {
                 if (methods[j].getName().equalsIgnoreCase("set" + name)) {
-                    methods[j].invoke(parentBean, beanMap.get(ref));
+                    Object o = beanMap.get(ref);
+                    methods[j].invoke(parentBean, o);
                 }
             }
             // 在上面注入之后会所依赖的父节点的bean已经发生了变化，所以要重新进行放到map中
@@ -90,8 +91,8 @@ public class BeanFactory {
 
     private static void dealBeanElementAndInstance(List<Element> elementList, Integer index) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         Element element = elementList.get(index);
-//                <bean class="com.wy.solution.dao.impl.JdbcAccountDaoImpl" id="accountDao"/>
-//                <bean class="com.wy.solution.service.impl.TransferServiceImpl" id="transferService"/>
+//                <bean class="JdbcAccountDaoImpl" id="accountDao"/>
+//                <bean class="TransferServiceImpl" id="transferService"/>
         // 处理每个bean元素，获取该元素下的id、class属性的值
         // 根据id获取属性
         String id = element.attributeValue("id");
@@ -100,6 +101,7 @@ public class BeanFactory {
         // 根据反射获取class对象
         Class<?> typeClass = Class.forName(clazz);
         // 进行实例化
+        // 无参构造是私有的，不能进行实例化对象
         Object realClass = typeClass.newInstance();
         // 存储到beanMap中
         beanMap.put(id, realClass);

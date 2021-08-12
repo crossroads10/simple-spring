@@ -1,4 +1,4 @@
-package com.wy.solution.service;
+package com.wy.spring.service;
 
 /**
  * @Classname TransferService
