@@ -101,7 +101,9 @@ public class BeanFactory {
         // 根据反射获取class对象
         Class<?> typeClass = Class.forName(clazz);
         // 进行实例化
-        // 无参构造是私有的，不能进行实例化对象
+        // 无参构造是私有的，不能进行实例化对象  或者是通过相关方法，把权限修改为public，然后再来进行实例化
+        // 把构造函数方法权限进行重新设置，打破现有的private 重新设置 就可以进行实例化了
+        // method.setAccessible(true);
         Object realClass = typeClass.newInstance();
         // 存储到beanMap中
         beanMap.put(id, realClass);

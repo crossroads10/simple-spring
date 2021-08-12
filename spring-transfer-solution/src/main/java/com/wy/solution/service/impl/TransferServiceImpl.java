@@ -9,8 +9,8 @@ import com.wy.solution.utils.TransactionManager;
 /**
  * @Classname TransferServiceImpl
  * @Description TODO
- * @Date 2021/8/10 11:42 下午
- * @Company 杭州光云科技有限公司
+ * @Date
+ * @Company
  * @Author wy
  */
 public class TransferServiceImpl implements TransferService {
@@ -43,6 +43,7 @@ public class TransferServiceImpl implements TransferService {
             // 添加事务控制  此处通过单例的方式去获取事务管理器
             // todo 其实这样搞呢，还是不优雅，如果业务接口非常多的话，会带来非常多的一个冗余代码，而且不利于扩展
             // todo 所以这个时候就可以通过动态代理来实现对接口的增强，通过代理类来实现功能增强
+            // todo  或者是通过注解的方式来实现也会更加优雅
             transactionManager.beginTransaction();
             Account from = accountDao.queryAccountByCardNo(fromCardNo);
             Account to = accountDao.queryAccountByCardNo(toCardNo);
