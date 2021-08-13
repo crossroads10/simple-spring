@@ -39,12 +39,12 @@ public class TransferServiceImpl implements TransferService {
 
     @Override
     public void transfer(String fromCardNo, String toCardNo, int money) throws Exception {
-        try {
+//        try {
             // 添加事务控制  此处通过单例的方式去获取事务管理器
             // todo 其实这样搞呢，还是不优雅，如果业务接口非常多的话，会带来非常多的一个冗余代码，而且不利于扩展
             // todo 所以这个时候就可以通过动态代理来实现对接口的增强，通过代理类来实现功能增强
             // todo  或者是通过注解的方式来实现也会更加优雅
-            transactionManager.beginTransaction();
+//            transactionManager.beginTransaction();
             Account from = accountDao.queryAccountByCardNo(fromCardNo);
             Account to = accountDao.queryAccountByCardNo(toCardNo);
 
@@ -54,14 +54,14 @@ public class TransferServiceImpl implements TransferService {
 
             accountDao.updateAccountByCardNo(to);
             accountDao.updateAccountByCardNo(from);
-            transactionManager.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            // 事务回滚
-            transactionManager.rollback();
-            // 主要是用于上层进行catch捕获异常
-            throw e;
-        }
+//            transactionManager.commit();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            // 事务回滚
+//            transactionManager.rollback();
+//            // 主要是用于上层进行catch捕获异常
+//            throw e;
+//        }
 
     }
 }

@@ -16,6 +16,10 @@
     </bean>
     <bean class="com.wy.solution.utils.ConnectionPools" id="connectionPools"></bean>
 
+    <bean class="com.wy.solution.factory.ProxyFactory" id="proxyFactory">
+        <property name="TransactionManager" ref="transactionManager"></property>
+    </bean>
+
 
 
 </beans>

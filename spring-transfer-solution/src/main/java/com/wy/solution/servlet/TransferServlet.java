@@ -1,6 +1,7 @@
 package com.wy.solution.servlet;
 
 import com.wy.solution.factory.BeanFactory;
+import com.wy.solution.factory.ProxyFactory;
 import com.wy.solution.utils.JsonUtils;
 import com.wy.solution.response.MyResponse;
 import com.wy.solution.service.TransferService;
@@ -15,10 +16,8 @@ import java.io.IOException;
 
 /**
  * @Classname TransferSerlvert
- * @Description
- *
- * 分析:关于此种方式的实现，没有基于任何的一个框架的实现，通过new对象进行依赖，以及通过jdbc的方式来实现数据库的连接和调用
- *
+ * @Description 分析:关于此种方式的实现，没有基于任何的一个框架的实现，通过new对象进行依赖，以及通过jdbc的方式来实现数据库的连接和调用
+ * <p>
  * 优缺点分析:
  * 优点:写起来简单，只要对于工程师来讲都非常的可读，而且可写，即使不了解任何框架的前提下，只要对Java语言有一些了解，了解一些
  * JSR规范，就可以读懂，而且可以写出来一样的功能。
@@ -27,10 +26,10 @@ import java.io.IOException;
  * 非常多，这种情况下，影响面很大，不利于系统的扩展性、维护性和稳定性。不符合面向接口开发的原则。
  * 问题点比较多，而且确实不利于系统的稳定性保障，所以要通过其他的方式来进行解耦，使得开发成本降低，开发效率提高，开发效能提高，问题率下降
  * 所以就要进行来进行解耦
- *  问题1:耦合度太高
- *  问题2：如果要求要么全部执行成功，要么全部执行失败，事务的特性，这种实现方式的情况下也没办法来进行保证
- *
- *
+ * 问题1:耦合度太高
+ * 问题2：如果要求要么全部执行成功，要么全部执行失败，事务的特性，这种实现方式的情况下也没办法来进行保证
+ * <p>
+ * <p>
  * 解决:
  * 所以说既然有以上问题的出现，必然是需要来寻求解决方案来进行解决的。
  * @Date 2021/8/11 2:01 上午
@@ -40,7 +39,11 @@ import java.io.IOException;
 @WebServlet(name = "transferServlet", urlPatterns = "/transferServlet")
 public class TransferServlet extends HttpServlet {
 
-    private TransferService transferService = (TransferService) BeanFactory.getBean("transferService");
+    //    private TransferService transferService = (TransferService) BeanFactory.getBean("transferService");
+    // 使用jdk动态代理来进行动态获取，获取代理对象进行功能的增强
+    private ProxyFactory proxyFactory = (ProxyFactory) BeanFactory.getBean("proxyFactory");
+//    private TransferService transferService = (TransferService) proxyFactory.jdkProxy(BeanFactory.getBean("transferService"));
+    private TransferService transferService = (TransferService) proxyFactory.cglibProxy(BeanFactory.getBean("transferService"));
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
