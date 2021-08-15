@@ -9,7 +9,7 @@ import com.wy.spring.service.TransferService;
  * @Classname TransferServiceImpl
  * @Description TODO
  * @Date 2021/8/10 11:42 下午
- * @Company 杭州光云科技有限公司
+ * @Company wy
  * @Author wy
  */
 public class TransferServiceImpl implements TransferService {

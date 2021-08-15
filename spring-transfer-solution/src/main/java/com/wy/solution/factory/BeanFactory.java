@@ -18,7 +18,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * 工厂类  生产对象(使用反射技术来进行实现)
  * @Date 2021/8/11 8:05 下午
  * @Company
- * @Author yunze
+ * @Author wy
  */
 public class BeanFactory {
     /**
@@ -91,8 +91,8 @@ public class BeanFactory {
 
     private static void dealBeanElementAndInstance(List<Element> elementList, Integer index) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         Element element = elementList.get(index);
-//                <bean class="JdbcAccountDaoImpl" id="accountDao"/>
-//                <bean class="TransferServiceImpl" id="transferService"/>
+//                <ioc class="JdbcAccountDaoImpl" id="accountDao"/>
+//                <ioc class="TransferServiceImpl" id="transferService"/>
         // 处理每个bean元素，获取该元素下的id、class属性的值
         // 根据id获取属性
         String id = element.attributeValue("id");

@@ -11,6 +11,7 @@
     <modules>
         <module>spring-transfer</module>
         <module>spring-transfer-solution</module>
+        <module>spring-di</module>
     </modules>
 
 
